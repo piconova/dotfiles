@@ -42,3 +42,12 @@ waybar-dev:
 # generate extensions.g.nix
 vscode-extensions: 
   bash modules/vscode/generate_extensions.sh > modules/vscode/extensions.g.nix
+
+xonsh:
+  #! /user/bin/env xonsh
+
+  xontrib load vox
+  vox new xonsh
+  vox activate xonsh
+  cd ~/.virtualenvs/xonsh/bin
+  pip3 install xonsh-direnv xontrib-kitty

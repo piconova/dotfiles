@@ -58,10 +58,10 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.gpuAcceleration": "auto",
-  "terminal.integrated.defaultProfile.linux": "nu",
+  "terminal.integrated.defaultProfile.linux": "xonsh",
   "terminal.integrated.profiles.linux": {
-    "nu": {
-      "path": "/home/yogesh/.nix-profile/bin/nu",
+    "xonsh": {
+      "path": "/home/yogesh/.nix-profile/bin/xonsh",
       "icon": "terminal-bash"
     }
   },
