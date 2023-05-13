@@ -1,3 +1,3 @@
-{ ... }: {
+{
   # add ssh matching blocks
 }

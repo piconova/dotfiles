@@ -8,7 +8,7 @@
     };
 
     settings = {
-      shell = "nu";
+      shell = "xonsh";
       font_family = "JetBrains Mono Nerd Font";
       cursor_shape = "beam";
       copy_on_select = "clipboard";
