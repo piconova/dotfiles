@@ -11,8 +11,7 @@ home:
   time nix run path:.#homeManagerConfigurations.$(hostname).activationPackage --verbose
 
 update:
-  nix flake update github:yogeshkumar98103/nixpkgs
-  nix flake update github:yogeshkumar98103/home-manager
+  nix flake update
 
 clean:
   nix-store --gc

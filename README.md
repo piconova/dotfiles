@@ -9,22 +9,22 @@
 
 <p>
   <a href="">
-    <img src="https://shields.piconova.cc/github/last-commit/yogeshkumar98103/.dotfiles" alt="last update" />
+    <img src="https://shields.piconova.cc/github/last-commit/piconova/dotfiles" alt="last update" />
   </a>
   
-  <img src="https://shields.piconova.cc/github/repo-size/yogeshkumar98103/.dotfiles" alt="repo size" />
+  <img src="https://shields.piconova.cc/github/repo-size/piconova/dotfiles" alt="repo size" />
  
-  <a href="https://github.com/yogeshkumar98103/ichiban/blob/master/LICENSE">
-    <img src="https://shields.piconova.cc/github/license/yogeshkumar98103/.dotfiles.svg" alt="license" />
+  <a href="https://github.com/piconova/ichiban/blob/master/LICENSE">
+    <img src="https://shields.piconova.cc/github/license/piconova/dotfiles.svg" alt="license" />
   </a>
 </p>
 
 <h4>
-  <a href="https://github.com/yogeshkumar98103/.dotfiles">Github</a>
+  <a href="https://github.com/piconova/dotfiles">Github</a>
   <span> · </span>
-  <a href="https://github.com/yogeshkumar98103/.dotfiles/issues/">Report Bug</a>
+  <a href="https://github.com/piconova/dotfiles/issues/">Report Bug</a>
   <span> · </span>
-  <a href="https://github.com/yogeshkumar98103/.dotfiles/issues/">Request Feature</a>
+  <a href="https://github.com/piconova/dotfiles/issues/">Request Feature</a>
 </h4>
 
 </div>
@@ -56,8 +56,8 @@ Distributed under MIT License. See LICENSE.txt for more information.
 
 ## Contact
 
-Owner: Yogesh  
-Project Link: [https://github.com/yogeshkumar98103/.dotfiles](https://github.com/yogeshkumar98103/.dotfiles)
+Owner: PicoNova  
+Project Link: [https://github.com/piconova/dotfiles](https://github.com/piconova/dotfiles)
 
 ## Acknowledgements
 

@@ -20,7 +20,7 @@
               }
               {
                 name = "dotfiles";
-                url = "https://github.com/yogeshkumar98103/.dotfiles-dev";
+                url = "https://github.com/piconova/dotfiles";
               }
               {
                 name = "ChatGPT";

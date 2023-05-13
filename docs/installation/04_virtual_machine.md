@@ -14,7 +14,7 @@
 ```
 [ ............... ############################################################### --------------- ]
   boot (fat32)    root (ext4)                                                     swap
-  (256MB)         (remaining)                                                     
+  (256MB)         (remaining)
 ```
 
 Use lsblk to get where the disk is located.
@@ -60,7 +60,7 @@ nix-env -iA nixos.git
 2. Clone repo
 
 ```sh
-git clone yogeshkumar98103/.dotfiles
+git clone piconova/.dotfiles
 ```
 
 3. Install nixos
@@ -76,10 +76,10 @@ reboot
 
 ### First Boot
 
-On first boot we won't be able to log in to desktop because it is not installed yet. Xsession is managed by home-manager and we are yet to apply our home-manager configuration.  
+On first boot we won't be able to log in to desktop because it is not installed yet. Xsession is managed by home-manager and we are yet to apply our home-manager configuration.
 
 1. Apply home manager configuration
-Go to command line mode using <Ctrl> + <Alt> + F3.
+   Go to command line mode using <Ctrl> + <Alt> + F3.
 
 ```sh
 mkdir -p .config/{Code/User}
