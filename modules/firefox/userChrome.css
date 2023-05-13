@@ -1,0 +1,79 @@
+/* ================================================= */
+/*                         Tab Bar                   */
+/* ================================================= */
+
+/* Add left padding to tab bar */
+#TabsToolbar {
+  padding-left: 8px !important;
+}
+
+/* tabs rounded corner  */
+.tab-background {
+  border-radius: 6px !important;
+}
+
+/* Add top and left padding to tabs in tabbar*/
+.tabbrowser-tab {
+  margin-top: 8px !important;
+  margin-bottom: 2px !important;
+}
+
+/* rounded icons in tabbar */
+#TabsToolbar .toolbarbutton-1 > .toolbarbutton-icon,
+#TabsToolbar .toolbarbutton-1 > .toolbarbutton-text,
+#TabsToolbar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+  border-radius: 40px !important;
+}
+
+/* Add top and left padding to buttons in tabbar (new tab, incognito window etc)*/
+#TabsToolbar .toolbarbutton-1 {
+  margin-top: 6px !important;
+  margin-left: 6px !important;
+}
+
+/* ================================================= */
+/*                         Tool Bar                  */
+/* ================================================= */
+
+/* Rounded search bar */
+#urlbar-background,
+#tracking-protection-icon-container,
+.identity-box,
+.identity-box-button,
+.urlbar-page-action {
+  border-radius: 70px !important;
+}
+
+/* padding inside search ba4 */
+#urlbar-input-container {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+/* reset border radius- / padding when search bar is clicked */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  border-radius: 4px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+/* round icons in toolbar */
+toolbar .toolbarbutton-1 > .toolbarbutton-icon,
+toolbar .toolbarbutton-1 > .toolbarbutton-text,
+toolbar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+  border-radius: 40px !important;
+}
+
+/* avoid home button icon cutting off due to corner radius */
+#home-button > .toolbarbutton-icon {
+  padding: 9px 0px !important;
+}
+
+/* ================================================= */
+/*                        Bookmarks                  */
+/* ================================================= */
+
+/* Add left padding to bookmar toolbar */
+#PersonalToolbar {
+  padding-left: 6px !important;
+}
