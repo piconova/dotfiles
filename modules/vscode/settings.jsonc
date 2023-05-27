@@ -95,8 +95,18 @@
   },
 
   // colorise
-  "colorize.languages": ["css", "sass", "scss", "xml", "svg", "nix", "lua"],
-  "colorize.colorized_colors": ["HEXA", "RGB", "HSL"],
+  "colorize.languages": [
+    "css",
+    "sass",
+    "scss",
+    "xml",
+    "svg",
+    "nix",
+    "lua",
+    "xsh"
+  ],
+
+  //   "colorize.colorized_colors": ["HEXA", "RGB", "HSL"],
 
   // debugger
   "debug.allowBreakpointsEverywhere": true,
@@ -202,5 +212,11 @@
   "git.openRepositoryInParentFolders": "never",
   "dart.debugExternalPackageLibraries": true,
   "dart.debugSdkLibraries": true,
-  "workbench.colorTheme": "Nord"
+  "workbench.colorTheme": "Nord",
+
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
+  }
 }

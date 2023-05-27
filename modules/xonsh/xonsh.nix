@@ -1,6 +1,7 @@
 { pkgs, config, tools, ... }: {
   home.packages = [
     pkgs.xonsh
+    pkgs.carapace
   ];
 
   home.file.".config/xonsh/nix.xsh".text = ''

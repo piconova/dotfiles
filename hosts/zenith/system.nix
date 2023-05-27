@@ -54,7 +54,6 @@
 
   boot.loader = {
     grub = {
-      version = 2;
       enable = true;
       useOSProber = true;
       efiSupport = true;
@@ -100,6 +99,16 @@
   programs.dconf.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet --time --cmd Hyprland";
+        user = user.name;
+      };
+    };
+  };
 
   services.xserver = {
     enable = true;

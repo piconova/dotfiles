@@ -34,7 +34,6 @@
     ../../modules/git/git.nix
     ../../modules/hypr/hyprland.nix
     ../../modules/hypr/hyprpaper.nix
-    ../../modules/hypr/grimblast.nix
     ../../modules/dunst/dunst.nix
     ../../modules/ssh/ssh.nix
     ../../modules/keychain/keychain.nix

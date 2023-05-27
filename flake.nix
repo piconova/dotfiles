@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     androidNixpkgs = {
       url = "github:tadfisher/android-nixpkgs/stable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +49,7 @@
           inputs.nur.overlay
           inputs.hyprland.overlays.default
           inputs.hyprland-contrib.overlays.default
+          inputs.hyprpicker.overlays.default
         ];
       };
 

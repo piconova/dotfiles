@@ -4,6 +4,11 @@
     pkgs.dunst
     pkgs.brightnessctl
     pkgs.pamixer
+    pkgs.grimblast
+    pkgs.hyprpicker
+    pkgs.wl-clipboard
+    pkgs.flameshot
+    pkgs.xdg-desktop-portal-hyprland
   ];
 
   wayland.windowManager.hyprland =
@@ -100,8 +105,17 @@
           workspace_swipe_min_speed_to_force = 10
         }
 
+        dwindle {
+          preserve_split = true
+          force_split = 2
+          split_width_multiplier = 2.0
+          default_split_ratio = 1.2
+        }
+
         master {
           new_is_master = false
+          allow_small_split = true
+          mfact = 0.7
         }
 
         # Persistent workspaces
@@ -125,14 +139,17 @@
         # Application binding
         bind = SUPER, return, exec, ${pkgs.kitty}/bin/kitty
         bind = SUPER, b, exec, ${pkgs.firefox}/bin/firefox
-        bind = SUPER, space, exec, ${pkgs.rofi}/bin/rofi -show run
+        bind = SUPER, space, exec, ${pkgs.rofi}/bin/rofi -show drun
         bind = SUPER + SHIFT, s, exec, ${pkgs.grimblast}/bin/grimblast copy area
+        bind = SUPER + SHIFT, p, exec, ${pkgs.hyprpicker}/bin/hypicker --autocopy
 
         # bind = SUPER,L,exec,swaylock --screenshots --effect-scale 0.3
         # bindl = ,switch:Lid Switch,exec,swaylock --image ~/Pictures/Wallpapers/default --effect-scale 0.1
 
         # Window management
+        bind = SUPER, t, layoutmsg, togglesplit
         bind = SUPER, q, killactive
+        bind = SUPER, m, layoutmsg, swapwithmaster master
         bindm = SUPER, mouse:272, movewindow
         bindm = SUPER + ALT, mouse:272, resizewindow
 
@@ -144,9 +161,7 @@
 
         # Toggle fullscreen
         bind = SUPER, f, fullscreen, 0
-
-        # Toggle maximise
-        bind = SUPER, m, fullscreen, 1
+        # bind = SUPER, m, fullscreen, 1
 
         # Toggle floating
         bind = SUPER + SHIFT, f, togglefloating, active

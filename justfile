@@ -14,7 +14,8 @@ update:
   nix flake update
 
 clean:
-  nix-store --gc
+  nix-collect-garbage -d
+  nix store optimise
 
 # generate and push ssh keys
 setup-ssh-keys:
