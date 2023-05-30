@@ -47,7 +47,7 @@ return {
           "^.git/",
           "^bin*/",
           "^build*/",
-        }
+        },
         layout_config = {
                                   
         },
