@@ -30,4 +30,10 @@
     source = "modules/xonsh/rc.xsh";
     target = ".config/xonsh/rc.xsh";
   };
+
+  home.activation.xonsh-dataframe-config = tools.createSymlink {
+    source = "modules/xonsh/dataframe.xsh";
+    target = ".config/xonsh/dataframe.xsh";
+  };
+
 }
