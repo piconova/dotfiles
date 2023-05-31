@@ -81,6 +81,9 @@ vim.api.nvim_set_keymap('n', '<M-Up>', ':m-2<CR>', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<M-Down>', ':m+<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<M-Up>', '<Esc>:m-2<CR>i', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<M-Down>', '<Esc>:m+<CR>i', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<M-Up>', '<Esc>:m-2<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<M-Down>', '<Esc>:m+<CR>==', { noremap = true, silent = true })
+
 
 -- Map Shift + Up/Down/Left/Right for selection
 vim.api.nvim_set_keymap('n', '<S-Up>', 'v<Up>', { noremap = true })
@@ -108,8 +111,9 @@ vim.api.nvim_set_keymap('v', '<C-x>', 'd', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>dd', { noremap = true })
 
 -- Map Ctrl + C to copy current line
-vim.api.nvim_set_keymap('n', '<C-c>', 'yy', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>yyi', { noremap = true })
+vim.api.nvim_set_keymap('n', 'yy', '^yg_', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-c>', 'yy', { })
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>yyi', { })
 vim.api.nvim_set_keymap('v', '<C-c>', 'y', { noremap = true })
 
 -- Map Ctrl + Z to undo
@@ -121,25 +125,36 @@ vim.api.nvim_set_keymap('n', '<C-y>', '<C-r>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-y>', '<Esc><C-r><i>', { noremap = true })
 
 -- Map Ctrl + A to go to start of line
-vim.api.nvim_set_keymap('', '<C-a>', '^', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-a>', '<C-Home>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>^i', { noremap = true })
-vim.api.nvim_set_keymap('v', '<C-a>', '<Esc>^gv', { noremap = true })
-vim.api.nvim_set_keymap('v', '<C-a>', '0', { noremap = true })
+vim.api.nvim_set_keymap('', '<Home>', '^', { noremap = true })
+vim.api.nvim_set_keymap('!', '<Home>', '<C-Home>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<Home>', '<Esc>^i', { noremap = true })
+vim.api.nvim_set_keymap('v', '<Home>', '0', { noremap = true })
 
 -- Map Ctrl + E to go to end of line
-vim.api.nvim_set_keymap('', '<C-e>', '$', { noremap = true })
-vim.api.nvim_set_keymap('!', '<C-e>', '<C-End>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-e>', '<Esc>A', { noremap = true })
-vim.api.nvim_set_keymap('v', '<C-e>', '$', { noremap = true })
+vim.api.nvim_set_keymap('', '<End>', '$', { noremap = true })
+vim.api.nvim_set_keymap('!', '<End>', '<C-End>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<End>', '<Esc>A', { noremap = true })
+vim.api.nvim_set_keymap('v', '<End>', '$', { noremap = true })
+
+-- Map Ctrl + A to select all text
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>ggVG', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-a>', '<Esc>ggVG', { noremap = true })
 
 -- Map Tab key to indent in visual mode
+vim.api.nvim_set_keymap('n', '<Tab>', 'i<Tab>', { silent = true })
+vim.api.nvim_set_keymap('n', '<S-Tab>', 'i<S-Tab>', { silent = true })
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-d>', { noremap = true })
 
 -- Map Backspace to delete in visual mode
-vim.api.nvim_set_keymap('v', '<BS>', 'd', { silent = true })
+vim.api.nvim_set_keymap('v', '<BS>', '"_d', { silent = true })
+vim.api.nvim_set_keymap('n', '<BS>', 'i<BS>', { noremap = true, silent = true })
+
+-- Define the mapping for navigating back and forth with Alt + Left/Right
+vim.api.nvim_set_keymap('n', '<M-Left>', '<C-o>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<M-Right>', '<C-i>', { noremap = true })
 
 -- Modes
 vim.api.nvim_set_keymap('n', 'vv', 'v', { noremap = true })
@@ -151,6 +166,10 @@ vim.api.nvim_set_keymap('v', 'kj', '<Esc>', { noremap = true })
 
 -- Remove highling from search result
 vim.api.nvim_set_keymap('n','<Esc><Esc>', '<Esc>:nohls<CR><Esc>', { noremap = true, silent = true })
+
+-- Ctrl + w to close current buffer
+vim.api.nvim_set_keymap('n', '<C-w>', ':bdelete<CR>', { noremap = true })
+
 
 -- =========================================================
 --                  Lazy Package Manager

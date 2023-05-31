@@ -3,8 +3,10 @@ return {
   -- tag = '0.1.1',
   dependencies = { 
     'nvim-lua/plenary.nvim',
+    "nvim-telescope/telescope-file-browser.nvim",
     'LukasPietzschmann/telescope-tabs',
     'natecraddock/telescope-zf-native.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim',
   },
   config = function()
     local builtin = require("telescope.builtin")
@@ -25,7 +27,7 @@ return {
     vim.keymap.set('n', 'fj', builtin.current_buffer_fuzzy_find, {})
     vim.keymap.set('n', 'fg', builtin.live_grep, {})
     vim.keymap.set('n', 'bb', builtin.buffers, {})
-    vim.keymap.set('n', 'tt', telescope_tabs.list_tabs, {})
+    vim.keymap.set('n', 'tt', telescope_tabs.list_tabs, {}) 
 
     vim.api.nvim_set_keymap(
       "n",
@@ -34,14 +36,15 @@ return {
       { noremap = true }
     )
 
-    local telescope = require("telescope")
-    telescope.load_extension("file_browser")
-    telescope.load_extension("zf-native")
-
+    local telescope = require("telescope") 
     local fb_actions = telescope.extensions.file_browser.actions
 
     telescope.setup({
       defaults = {
+        color_devicons = true,
+        path_display = { "smart" },
+        -- highlighter = telescope.highlighter.vim_highlighter,
+        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
         file_ignore_patterns = {
           "^node_modules/",
           "^.git/",
@@ -72,7 +75,8 @@ return {
         buffers = {
           mappings = {
             i = { 
-              ["<CR>"] = actions.select_tab_drop 
+              ["<CR>"] = actions.select_tab_drop,
+              ["<Del>"] = actions.delete_buffer,
             },
           },
         },
@@ -88,24 +92,22 @@ return {
               ["<S-CR>"] = actions.select_vertical,
               ["<C-S-CR>"] = actions.select_horizontal,
               ["<C-n>"] = fb_actions.create,
-              ["<C-d>"] = fb_actions.remove,
+              ["<C-x>"] = fb_actions.move,
+              ["<C-c>"] = fb_actions.copy,
+              ["<Del>"] = fb_actions.remove,
             },
           },
         },
-        ["zf-native"] = {
-          file = {
-            enable = true,
-            highlight_results = true,
-            match_filename = true,
-          },
-          generic = {
-            enable = true,
-            highlight_results = true,
-            match_filename = false,
-          },
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
         },
       },
-    }) 
+    })
+
+    telescope.load_extension("file_browser")
+    -- telescope.load_extension("zf-native")
+    telescope.load_extension('fzf')
 
   end,
 }

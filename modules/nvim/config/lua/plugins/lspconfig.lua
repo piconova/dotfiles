@@ -12,6 +12,9 @@ return {
     -- snippets
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
+
+    -- formatting
+    "joechrisellis/lsp-format-modifications.nvim"
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -48,12 +51,22 @@ return {
         vim.keymap.set('n', '[', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+ 
+        -- vim.api.nvim_create_autocmd("BufWritePre", {
+        --   pattern = "*",
+        --   command = "lua vim.lsp.buf.format({ async = true })" 
+        -- })
       end
     })
 
     -- language servers
     lspconfig.pyright.setup {}
-    lspconfig.clangd.setup {}
+    lspconfig.clangd.setup {
+      on_attach = function(client, bufnr)
+        local lsp_format_modifications = require("lsp-format-modifications")
+        lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
+      end
+    }
 
     -- snippets
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -117,7 +130,7 @@ return {
         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
         ['<Down>'] = cmp.mapping.select_next_item(select_opts),
         ['<Esc>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
         ['<Tab>'] = cmp.mapping(function (fallback)
             if luasnip.expandable() then
                 luasnip.expand()
@@ -137,17 +150,17 @@ return {
             end
         end, {'i', 's'})
       },
-      enabled = function()
-        -- disable completion in comments
-        local context = require('cmp.config.context')
-        -- keep command mode completion enabled when cursor is in a comment
-        if vim.api.nvim_get_mode().mode == 'c' then
-          return true
-        else
-          return not context.in_treesitter_capture("comment") 
-            and not context.in_syntax_group("Comment")
-        end
-      end
+      -- enabled = function()
+      --   -- disable completion in comments
+      --   local context = require('cmp.config.context')
+      --   -- keep command mode completion enabled when cursor is in a comment
+      --   if vim.api.nvim_get_mode().mode == 'c' then
+      --     return true
+      --   else
+      --     return not context.in_treesitter_capture("comment") 
+      --       and not context.in_syntax_group("Comment")
+      --   end
+      -- end
     })
     
     -- vscode like theme
